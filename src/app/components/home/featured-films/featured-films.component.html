@@ -1,0 +1,32 @@
+<section class="featured px-md-0 px-sm-5" id="featured">
+    <div class="container">
+        <h2 class="fw-bold display-6 text-center mb-5">Featured <span class="orange">Films</span></h2>
+        <div class="featured-cards">
+            <div class="row g-4 mb-4">
+                @for (movie of moviesList; track $index) {
+                <div class="col-lg-2 d-flex justify-content-center">
+                    <article class="card border-0">
+                        <img [src]="movie.img" class="card-img-top img img-fluid" alt="film">
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between fw-medium">
+                                <div>
+                                    <p class="title text-truncate lh-sm mb-0">{{movie.title | titlecase}}</p>
+                                    <small class="text-secondary">({{movie.language | titlecase}})</small>
+                                </div>
+                                <p class="text-success">
+                                    <fa-icon [icon]="icon"></fa-icon>
+                                    {{movie.rating}}
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                }
+            </div>
+            <a routerLink="/movies" class="btn btn-light mt-3">
+                See More
+                <fa-icon class="text-secondary" [icon]="rightIcon"></fa-icon>
+            </a>
+        </div>
+    </div>
+</section>

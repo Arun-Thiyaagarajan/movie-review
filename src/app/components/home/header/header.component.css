@@ -1,0 +1,25 @@
+.hero {
+    min-height: 92vh;
+}
+
+.content {
+    width: 100%;
+}
+
+.img {
+    width: 40%;
+}
+
+.hero-sub-title {
+    color: var(--orange);
+}
+
+.btn {
+    background-color: var(--orange);
+}
+
+@media (min-width: 768px) {
+    .content {
+        width: 50%;
+    }
+}

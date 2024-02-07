@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+:root {
+    /* Colors */
+    --white: #f8f9fa;
+    --black: #212529;
+    --dark-blue: #171d24;
+    --orange: #dc2f02;
+    --yellow: #ffba08;
+
+    /* Others */
+    --transition: all .3s ease-in-out;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+section {
+    scroll-margin-top: 4rem;
+}
+
+.orange {
+    color: var(--orange);
+}
