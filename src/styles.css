@@ -27,8 +27,14 @@ body {
     font-family: 'Noto Sans', sans-serif;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 section {
     scroll-margin-top: 4rem;
+    min-height: 90vh;
 }
 
 .orange {

@@ -10,6 +10,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FeaturedFilmsComponent } from './components/home/featured-films/featured-films.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
+import { MoviesComponent } from './components/movies/movies.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HomeComponent,
     NotFoundComponent,
     FeaturedFilmsComponent,
-    FooterComponent
+    FooterComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,

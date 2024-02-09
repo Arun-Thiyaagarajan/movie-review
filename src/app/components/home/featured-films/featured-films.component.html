@@ -1,9 +1,9 @@
-<section class="featured px-md-0 px-sm-5" id="featured">
+<section class="featured px-md-0 px-5" id="featured">
     <div class="container">
         <h2 class="fw-bold display-6 text-center mb-5">Featured <span class="orange">Films</span></h2>
         <div class="featured-cards">
             <div class="row g-4 mb-4">
-                @for (movie of moviesList; track $index) {
+                @for (movie of featuredMoviesList; track $index) {
                 <div class="col-lg-2 d-flex justify-content-center">
                     <article class="card border-0">
                         <img [src]="movie.img" class="card-img-top img img-fluid" alt="film">
