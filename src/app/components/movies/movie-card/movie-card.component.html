@@ -1,0 +1,17 @@
+<a [routerLink]="'/movies/movie/' + movie.id" class="col-lg-2 d-flex justify-content-center">
+    <article class="card border-0">
+        <img [src]="movie.img" class="card-img-top img img-fluid" alt="film">
+        <div class="card-body">
+            <div class="card-text d-flex justify-content-between fw-medium">
+                <div>
+                    <p class="title text-truncate lh-sm mb-0">{{movie.title | titlecase}}</p>
+                    <small class="text-secondary">({{movie.language | titlecase}})</small>
+                </div>
+                <p class="text-success">
+                    <fa-icon [icon]="icon"></fa-icon>
+                    {{movie.rating}}
+                </p>
+            </div>
+        </div>
+    </article>
+</a>

@@ -1,0 +1,32 @@
+.btn {
+    background-color: var(--orange);
+}
+
+.card {
+    width: 14rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow-1);
+
+    .title {
+        max-width: 110px;
+    }
+
+    .img {
+        height: 275px;
+        object-fit: cover;
+    }
+}
+
+.category-title {
+    transition: var(--transition);
+}
+
+.category-title:hover {
+    color: var(--orange);
+}
+
+.card:hover {
+    box-shadow: var(--box-shadow-2);
+    transform: scale(1.02);
+}

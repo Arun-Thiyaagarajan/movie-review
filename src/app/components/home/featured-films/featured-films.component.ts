@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Movies } from '../../../Model/Movies';
+import { Movies } from '../../../Model/Movie';
 import { faChevronRight, faStar } from '@fortawesome/free-solid-svg-icons';
 import { MoviesService } from '../../../services/movies.service';
 

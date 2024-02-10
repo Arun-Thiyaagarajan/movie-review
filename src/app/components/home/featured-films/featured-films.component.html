@@ -4,7 +4,7 @@
         <div class="featured-cards">
             <div class="row g-4 mb-4">
                 @for (movie of featuredMoviesList; track $index) {
-                <div class="col-lg-2 d-flex justify-content-center">
+                <a [routerLink]="'/movies/movie/' + movie.id" class="col-lg-2 d-flex justify-content-center" [state]="movie">
                     <article class="card border-0">
                         <img [src]="movie.img" class="card-img-top img img-fluid" alt="film">
                         <div class="card-body">
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                     </article>
-                </div>
+                </a>
                 }
             </div>
             <a routerLink="/movies" class="btn btn-light mt-3">

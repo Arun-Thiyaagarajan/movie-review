@@ -1,12 +1,14 @@
 export class Movies {
+    id?: number;
     title: string;
     year: number;
     language: string;
-    available_languages?: string;
     img: string;
     rating: number;
     desc: string;
     category?: string;
+    cast?: string;
+    director?: string;
     platforms?: string;
-    id?: string;
+    available_languages?: string;
 };

@@ -11,6 +11,8 @@ import { FeaturedFilmsComponent } from './components/home/featured-films/feature
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
 import { MoviesComponent } from './components/movies/movies.component';
+import { MovieDetailComponent } from './components/movies/movie-detail/movie-detail.component';
+import { MovieCardComponent } from './components/movies/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { MoviesComponent } from './components/movies/movies.component';
     NotFoundComponent,
     FeaturedFilmsComponent,
     FooterComponent,
-    MoviesComponent
+    MoviesComponent,
+    MovieDetailComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,

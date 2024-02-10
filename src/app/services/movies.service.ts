@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Movies } from '../Model/Movies';
+import { Movies } from '../Model/Movie';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,7 @@ export class MoviesService {
 
   moviesList: Movies[] = [
     {
+      id: 1,
       title: 'Good Night',
       language: 'Tamil',
       year: 2023,
@@ -16,6 +17,7 @@ export class MoviesService {
       desc: '',
     },
     {
+      id: 2,
       title: 'Taare Zameen Par',
       language: 'hindi',
       year: 2007,
@@ -24,6 +26,7 @@ export class MoviesService {
       desc: '',
     },
     {
+      id: 3,
       title: 'Anbe Sivam',
       language: 'tamil',
       year: 2003,
@@ -32,6 +35,7 @@ export class MoviesService {
       desc: '',
     },
     {
+      id: 4,
       title: 'hatchi: a dog\'s tale',
       language: 'English',
       year: 2009,
@@ -40,6 +44,7 @@ export class MoviesService {
       desc: '',
     },
     {
+      id: 5,
       title: 'Inception',
       language: 'English',
       year: 2010,
@@ -48,6 +53,7 @@ export class MoviesService {
       desc: '',
     },
     {
+      id: 6,
       title: 'Peranbu',
       language: 'Tamil',
       year: 2018,
@@ -56,4 +62,6 @@ export class MoviesService {
       desc: '',
     },
   ];
+
+
 }
