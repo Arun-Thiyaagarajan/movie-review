@@ -1,11 +1,19 @@
-<section class="movie-detail p-5">
-    <div class="container">
-        <button class="btn btn-primary mb-3" routerLink="../../">Back</button>
-        <h2>{{movie.title}}</h2>
-        <div class="d-flex">
-            <img [src]="movie.img" class="img-fluid w-25 me-3 rounded-2 img" alt="">
-            <div>
-                <p>Name: {{movie.title}}</p>
+<section class="movie-detail">
+    <div class="bg-dark text-light p-5">
+        <div class="container">
+            <!-- <button class="btn btn-primary mb-3" routerLink="../../">Back</button> -->
+            <div class="d-flex">
+                <img [src]="movie.img" class="img-fluid rounded-3 me-4 img" alt="">
+                <div>
+                    <h2 class="fw-bold">{{movie.title | titlecase}}
+                        <small class="text-secondary">({{movie.year}})</small>
+                    </h2>
+                    <a routerLink="" class="orange text-decoration-underline">{{movie.category | titlecase}}</a>
+                    <!-- <div class="platform-container mt-3">
+                        <p class="d-inline-block me-2">Platforms</p>
+                        <a href="#" target="_blank" class="platform btn btn-secondary btn-sm">Hotstar</a>
+                    </div> -->
+                </div>
             </div>
         </div>
     </div>

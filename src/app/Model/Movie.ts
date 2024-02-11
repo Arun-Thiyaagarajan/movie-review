@@ -6,9 +6,10 @@ export class Movies {
     img: string;
     rating: number;
     desc: string;
+    certficate?: string;
     category?: string;
     cast?: string;
     director?: string;
-    platforms?: string;
+    platforms?: string[];
     available_languages?: string;
 };

@@ -40,3 +40,7 @@ section {
 .orange {
     color: var(--orange);
 }
+
+.orange-bg {
+    background-color: var(--orange);
+}

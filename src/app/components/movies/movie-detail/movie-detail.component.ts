@@ -18,6 +18,8 @@ export class MovieDetailComponent implements OnInit {
     //   this.movie = data;
     // });
     // this.movie = this.router.getCurrentNavigation().extras.state;
+    
     this.movie = history.state;
+    console.log(this.movie);
   }
 }

@@ -12,6 +12,8 @@ export class MoviesService {
       title: 'Good Night',
       language: 'Tamil',
       year: 2023,
+      category: 'feel good',
+      certficate: 'u/a',
       rating: 7.7,
       img: 'https://m.media-amazon.com/images/M/MV5BYmIxMzAzOTEtY2QyZi00YzBkLThiM2ItM2I5YzNhYzM2ZTJlXkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_FMjpg_UX1000_.jpg',
       desc: '',
