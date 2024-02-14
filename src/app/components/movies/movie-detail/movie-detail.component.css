@@ -1,9 +1,25 @@
-.img {
+a:hover {
+    text-decoration: underline;
+}
+
+/* .details {
+    display: flex;
+} */
+
+.other-details {
     width: 25%;
-    height: 475px;
+}
+
+.img {
+    width: 20%;
+    height: 375px;
     object-fit: cover;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     transition: var(--transition);
+}
+
+.content {
+    width: 50%;
 }
 
 .img:hover {
@@ -12,4 +28,46 @@
 
 .platform {
     width: max-content;
+}
+
+.description {
+    width: 95%;
+}
+
+/* .imdb>a:hover {
+    text-decoration: underline;
+} */
+
+.platform_img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    object-fit: cover;
+}
+
+.platform_img:hover {
+    opacity: 0.7;
+    transform: scale(1.05);
+}
+
+.technical-cast a {
+    color: #4D83C9;
+}
+
+@media (max-width: 768px) {
+
+    .img {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .other-details {
+        width: 100%;
+    }
 }

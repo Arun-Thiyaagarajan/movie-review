@@ -2,18 +2,73 @@
     <div class="bg-dark text-light p-5">
         <div class="container">
             <!-- <button class="btn btn-primary mb-3" routerLink="../../">Back</button> -->
-            <div class="d-flex">
+            <div class="details d-flex flex-md-row flex-column">
+
                 <img [src]="movie.img" class="img-fluid rounded-3 me-4 img" alt="">
-                <div>
+
+                <div class="content me-4">
                     <h2 class="fw-bold">{{movie.title | titlecase}}
                         <small class="text-secondary">({{movie.year}})</small>
                     </h2>
-                    <a routerLink="" class="orange text-decoration-underline">{{movie.category | titlecase}}</a>
-                    <!-- <div class="platform-container mt-3">
-                        <p class="d-inline-block me-2">Platforms</p>
-                        <a href="#" target="_blank" class="platform btn btn-secondary btn-sm">Hotstar</a>
-                    </div> -->
+                    <div class="mb-3">
+                        @for (item of movie.category; track $index) {
+                        <a routerLink="" class="cat-text text-warning">{{item | titlecase}}</a>
+                        @if ($index !== movie.category.length - 1) {
+                        <span> • </span>
+                        }
+                        }
+                    </div>
+                    <div class="mb-4">
+                        <p class="description lead">{{movie.desc}}</p>
+                    </div>
+                    <hr>
+                    <div class="technical-cast">
+                        @for (cast of technicalCast; track $index)
+                        {
+                        <p class="hstack gap-3">
+                            <span class="fw-bold">{{cast.label}}</span>
+                            <span>
+                                @for (people of movie[cast.property]; track $index) {
+                                <a target="_blank" [href]="'https://www.google.com/search?q=' + people">
+                                    {{people | titlecase}}
+                                </a>
+                                @if ($index !== movie[cast.property].length - 1) {
+                                <span> • </span>
+                                }
+                                }
+                            </span>
+                        </p>
+                        <hr>
+                        }
+                    </div>
                 </div>
+
+                <div class="other-details">
+                    <div class="mb-4">
+                        <h5 class="mb-3">Languages</h5>
+                        <div class="d-flex hstack gap-1 flex-wrap">
+                            @for (item of movie.available_languages; track $index) {
+                            <span class="badge text-bg-secondary">{{item | titlecase}}</span>
+                            }
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="mb-3">IMDb Rating</h5>
+                        <h4 class="imdb">
+                            <i class="fa-solid fa-star orange me-2"></i>
+                            <span>{{movie.rating}} / 10</span>
+                        </h4>
+                    </div>
+                    <div>
+                        <h5 class="mb-3">Streaming Platforms</h5>
+                        @for (item of movie.platforms; track $index) {
+                        <a [href]="item.link" [title]="item.name | titlecase" target="_blank">
+                            <img [src]="item.img" class="platform_img rounded-2 img-fluid" [alt]="item.name">
+                        </a>
+                        }
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

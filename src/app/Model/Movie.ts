@@ -7,9 +7,13 @@ export class Movies {
     rating: number;
     desc: string;
     certficate?: string;
-    category?: string;
+    category?: string[];
     cast?: string;
-    director?: string;
-    platforms?: string[];
-    available_languages?: string;
+    technicalCast?: Object[];
+    director?: string[];
+    writer?: string[];
+    cinematographer?: string;
+    music_director?: string[];
+    platforms?: Object[];
+    available_languages?: string[];
 };
