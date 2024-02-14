@@ -1,14 +1,18 @@
 <section class="movie-detail">
-    <div class="bg-dark text-light p-5">
+    <div class="bg-dark text-light p-5 pb-3">
         <div class="container-md container-fluid">
             <!-- <button class="btn btn-primary mb-3" routerLink="../../">Back</button> -->
-            <div class="details d-flex flex-md-row flex-column">
+            <div class="details d-flex flex-md-row flex-column user-select-none">
 
                 <img [src]="movie.img" class="img-fluid rounded-3 me-4 img" alt="">
 
                 <div class="content me-4">
-                    <h2 class="fw-bold">{{movie.title | titlecase}}
-                        <small class="text-secondary">({{movie.year}})</small>
+                    <h2 class="fw-bold user-select-all">{{movie.title | titlecase}}
+                        <small class="text-secondary me-2">({{movie.year}})</small>
+                        <h6 class="d-inline">
+                            <span class="badge rounded-pill text-bg-success user-select-none">{{movie.certficate |
+                                uppercase}}</span>
+                        </h6>
                     </h2>
                     <div class="mb-3">
                         @for (item of movie.category; track $index) {
@@ -21,7 +25,9 @@
                     <div class="mb-4">
                         <p class="description lead">{{movie.desc}}</p>
                     </div>
+
                     <hr>
+
                     <div class="technical-cast">
                         @for (cast of technicalCast; track $index)
                         {
@@ -41,10 +47,28 @@
                         <hr>
                         }
                     </div>
+
+                    <div class="cast-and-crew">
+                        <p class="d-flex gap-3">
+                            <span class="fw-bold">Cast</span>
+                            <span>
+                                @for (person of movie.cast; track $index) {
+                                <!-- <a [href]="'https://www.google.com/search?q=' + person + ' from ' + movie.title" -->
+                                <a [href]="'https://www.google.com/search?q=cast+of+' + movie.title" target="_blank">
+                                    {{person | titlecase}}
+                                </a>
+                                @if ($index !== movie.cast.length - 1) {
+                                <span> • </span>
+                                }
+                                }
+                            </span>
+                        </p>
+                    </div>
+
                 </div>
 
                 <div class="other-details">
-                    <div class="mb-4">
+                    <div class="mb-4" *ngIf="movie.available_languages">
                         <h5 class="mb-3">Languages</h5>
                         <div class="d-flex hstack gap-1 flex-wrap">
                             @for (item of movie.available_languages; track $index) {

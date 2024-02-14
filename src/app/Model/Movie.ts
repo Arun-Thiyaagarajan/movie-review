@@ -8,7 +8,7 @@ export class Movies {
     desc: string;
     certficate?: string;
     category?: string[];
-    cast?: string;
+    cast?: string[];
     technicalCast?: Object[];
     director?: string[];
     writer?: string[];

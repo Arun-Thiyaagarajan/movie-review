@@ -1,10 +1,11 @@
-<section class="featured px-md-0 px-5" id="featured">
+<div class="featured px-md-0 px-5" id="featured">
     <div class="container">
         <h2 class="fw-bold display-6 text-center mb-5">Featured <span class="orange">Films</span></h2>
         <div class="featured-cards">
             <div class="row g-4 mb-4">
                 @for (movie of featuredMoviesList; track $index) {
-                <a [routerLink]="'/movies/movie/' + movie.id" class="col-lg-2 d-flex justify-content-center" [state]="movie">
+                <a [routerLink]="'/movies/movie/' + movie.id" class="col-lg-2 d-flex justify-content-center"
+                    [state]="movie">
                     <article class="card border-0">
                         <img [src]="movie.img" class="card-img-top img img-fluid" alt="film">
                         <div class="card-body">
@@ -29,4 +30,4 @@
             </a>
         </div>
     </div>
-</section>
+</div>

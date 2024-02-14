@@ -52,7 +52,7 @@ a:hover {
     transform: scale(1.05);
 }
 
-.technical-cast a {
+.technical-cast a, .cast-and-crew a {
     color: #4D83C9;
 }
 
