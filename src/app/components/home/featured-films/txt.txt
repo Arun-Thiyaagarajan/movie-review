@@ -1,0 +1,53 @@
+[
+    {
+        "avail_languages": "Tamil, Telugu, hindi",
+        "cast": "Siva Karthikeyan, Sai Pallavi, Lallu",
+        "categories": [
+            "drama",
+            "action"
+        ],
+        "certificate": "U/A",
+        "description": "Amaran (transl. Immortal)[a] is an upcoming Tamil-language action war film written and directed by Rajkumar Periasamy, and produced by Raaj Kamal Films International and Sony Pictures Films India. The film stars Sivakarthikeyan portraying the role of Major Mukund Varadarajan, alongside Sai Pallavi, Bhuvan Arora, Rahul Bose, Lallu, Hanun Bawra, Ajaey Naga Raaman, Mir Salman, Gaurav Venkatesh, and Shreekumar. It is an adaptation of the book series India's Most Fearless by Shiv Aroor and Rahul Singh, which is based on Mukund Varadarajan.",
+        "directors": "Rajkumar Periasamy",
+        "image": "https://static.moviecrow.com/gallery/20240219/226331-Amaran%20Sivakarthikeyan.jpg",
+        "language": "Tamil",
+        "movieName": "Amaran",
+        "music_directors": "G.V. Prakash Kumar",
+        "platforms": [
+            "amazon_prime",
+            "Apple TV",
+            "Netflix"
+        ],
+        "rating": 8.9,
+        "writers": "Rajkumar Periasamy",
+        "year": "2024",
+        "id": "-NrGoxQnT1xXrwMikekN"
+    },
+    {
+        "avail_languages": "Tamil, Malayalam, Telugu, Kannada,Hindi",
+        "cast": "Manikandan, Ramesh Thilak, Raichal Rabecca, Meetha Raghunath, Balaji Sakthivel, Sree Arthi",
+        "categories": [
+            "feel good",
+            "romance",
+            "drama",
+            "comedy"
+        ],
+        "certificate": "U",
+        "description": "A simple boy-next-door whose biggest problem in life is his snoring,\nfalls in love with a girl. Follow how the couple overcome his sleeping\nproblem while living together.",
+        "directors": "Vinayak Chandrasekaran",
+        "image": "https://m.media-amazon.com/images/M/MV5BYmIxMzAzOTEtY2QyZi00YzBkLThiM2ItM2I5YzNhYzM2ZTJlXkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_FMjpg_UX1000_.jpg",
+        "language": "Tamil",
+        "movieName": "Good Night",
+        "music_directors": "Sean Roldan",
+        "navigationId": 5,
+        "platforms": [
+            "Hotstar",
+            "SunNxt",
+            "YouTube"
+        ],
+        "rating": 7.7,
+        "writers": "Vinayak Chandrasekaran",
+        "year": "2023",
+        "id": "-NrJZxKn7gp4UR923PIZ"
+    }
+]

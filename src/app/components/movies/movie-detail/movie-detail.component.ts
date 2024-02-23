@@ -1,7 +1,9 @@
-import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movies } from '../../../Model/Movie';
 import { technicalCast } from '../../../Model/data';
+import { ClipboardService } from 'ngx-clipboard';
+import { streamingPlatforms } from '../../../Model/data';
 
 @Component({
   selector: 'app-movie-detail',
@@ -11,9 +13,15 @@ import { technicalCast } from '../../../Model/data';
 export class MovieDetailComponent implements OnInit {
   activeRoute: ActivatedRoute = inject((ActivatedRoute));
   router: Router = inject(Router);
+  clipboardService: ClipboardService = inject(ClipboardService);
 
   movie;
   technicalCast;
+  streamingPlatforms = { ...streamingPlatforms };
+
+  copyToClipboard(movieName: string): void {
+    this.clipboardService.copyFromContent(movieName);
+  }
 
   scrollToTop(): void {
     window.scrollTo({

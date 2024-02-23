@@ -7,11 +7,11 @@
                 <a [routerLink]="'/movies/movie/' + movie.id" class="col-lg-2 d-flex justify-content-center"
                     [state]="movie">
                     <article class="card border-0">
-                        <img [src]="movie.img" class="card-img-top img img-fluid" alt="film">
+                        <img [src]="movie.image" class="card-img-top img img-fluid" alt="film">
                         <div class="card-body">
                             <div class="card-text d-flex justify-content-between fw-medium">
                                 <div>
-                                    <p class="title text-truncate lh-sm mb-0">{{movie.title | titlecase}}</p>
+                                    <p class="title text-truncate lh-sm mb-0">{{movie.movieName | titlecase}}</p>
                                     <small class="text-secondary">({{movie.language | titlecase}})</small>
                                 </div>
                                 <p class="text-success">

@@ -19,14 +19,14 @@
             <div class="row g-4 mb-4">
                 @for (movie of moviesList; track $index) {
                 <a [routerLink]="'/movies/movie/' + movie.id"
-                    class="col-xl-2 col-lg-3 col-md-4 d-flex justify-content-center" [title]="movie.title | titlecase"
+                    class="col-xl-2 col-lg-3 col-md-4 d-flex justify-content-center" [title]="movie.movieName| titlecase"
                     [state]="movie">
                     <article class="card border-0">
-                        <img [src]="movie.img" class="card-img-top img img-fluid" [alt]="movie.title | titlecase">
+                        <img [src]="movie.image" class="card-img-top img img-fluid" [alt]="movie.movieName| titlecase">
                         <div class="card-body">
                             <div class="card-text d-flex justify-content-between fw-medium">
                                 <div>
-                                    <p class="title text-truncate lh-sm mb-0">{{movie.title | titlecase}}</p>
+                                    <p class="title text-truncate lh-sm mb-0">{{movie.movieName| titlecase}}</p>
                                     <small class="text-secondary">({{movie.language | titlecase}})</small>
                                 </div>
                                 <p class="text-success">
@@ -52,13 +52,13 @@
             <div class="row g-4 mb-4">
                 @for (movie of moviesList; track $index) {
                 <a [routerLink]="'/movies/movie/' + movie.id" class="col-lg-2 d-flex justify-content-center"
-                    [title]="movie.title | titlecase" [state]="movie">
+                    [title]="movie.movieName| titlecase" [state]="movie">
                     <article class="card border-0">
-                        <img [src]="movie.img" class="card-img-top img img-fluid" alt="film">
+                        <img [src]="movie.image" class="card-img-top img img-fluid" alt="film">
                         <div class="card-body">
                             <div class="card-text d-flex justify-content-between fw-medium">
                                 <div>
-                                    <p class="title text-truncate lh-sm mb-0">{{movie.title | titlecase}}</p>
+                                    <p class="title text-truncate lh-sm mb-0">{{movie.movieName| titlecase}}</p>
                                     <small class="text-secondary">({{movie.language | titlecase}})</small>
                                 </div>
                                 <p class="text-success">

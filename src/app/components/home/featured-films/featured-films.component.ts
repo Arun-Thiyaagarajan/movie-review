@@ -17,6 +17,6 @@ export class FeaturedFilmsComponent {
   moviesService: MoviesService = inject(MoviesService);
 
   ngOnInit() {
-    this.featuredMoviesList = this.moviesService.moviesList;
+    // this.featuredMoviesList = this.moviesService.moviesList;
   }
 }

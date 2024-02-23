@@ -2,12 +2,12 @@
     <div class="bg-dark text-light p-5 pb-3">
         <div class="container-md container-fluid">
             <!-- <button class="btn btn-primary mb-3" routerLink="../../">Back</button> -->
-            <div class="details d-flex flex-md-row flex-column user-select-none">
+            <div class="details d-flex flex-md-row flex-column">
 
-                <img [src]="movie.img" class="img-fluid rounded-3 me-4 img" alt="">
+                <img [src]="movie.image" class="img-fluid rounded-3 me-4 img" alt="">
 
                 <div class="content me-4">
-                    <h2 class="fw-bold user-select-all">{{movie.title | titlecase}}
+                    <h2 class="fw-bold">{{movie.movieName | titlecase}}
                         <small class="text-secondary me-2">({{movie.year}})</small>
                         <h6 class="d-inline">
                             <span class="badge rounded-pill text-bg-success user-select-none">{{movie.certficate |
@@ -15,15 +15,15 @@
                         </h6>
                     </h2>
                     <div class="mb-3">
-                        @for (item of movie.category; track $index) {
+                        @for (item of movie.categories; track $index) {
                         <a routerLink="" class="cat-text text-warning">{{item | titlecase}}</a>
-                        @if ($index !== movie.category.length - 1) {
+                        @if ($index !== movie.categories.length - 1) {
                         <span> • </span>
                         }
                         }
                     </div>
                     <div class="mb-4">
-                        <p class="description lead">{{movie.desc}}</p>
+                        <p class="description lead">{{movie.description}}</p>
                     </div>
 
                     <hr>
@@ -34,11 +34,11 @@
                         <p class="hstack gap-3">
                             <span class="fw-bold">{{cast.label}}</span>
                             <span>
-                                @for (people of movie[cast.property]; track $index) {
+                                @for (people of movie[cast.property].split(','); track $index) {
                                 <a target="_blank" [href]="'https://www.google.com/search?q=' + people">
                                     {{people | titlecase}}
                                 </a>
-                                @if ($index !== movie[cast.property].length - 1) {
+                                @if ($index !== movie[cast.property].split(',').length - 1) {
                                 <span> • </span>
                                 }
                                 }
@@ -52,12 +52,12 @@
                         <p class="d-flex gap-3">
                             <span class="fw-bold">Cast</span>
                             <span>
-                                @for (person of movie.cast; track $index) {
+                                @for (person of movie.cast.split(','); track $index) {
                                 <!-- <a [href]="'https://www.google.com/search?q=' + person + ' from ' + movie.title" -->
                                 <a [href]="'https://www.google.com/search?q=cast+of+' + movie.title" target="_blank">
                                     {{person | titlecase}}
                                 </a>
-                                @if ($index !== movie.cast.length - 1) {
+                                @if ($index !== movie.cast.split(',').length - 1) {
                                 <span> • </span>
                                 }
                                 }
@@ -68,10 +68,10 @@
                 </div>
 
                 <div class="other-details">
-                    <div class="mb-4" *ngIf="movie.available_languages">
+                    <div class="mb-4" *ngIf="movie.avail_languages">
                         <h5 class="mb-3">Languages</h5>
                         <div class="d-flex hstack gap-1 flex-wrap">
-                            @for (item of movie.available_languages; track $index) {
+                            @for (item of movie.avail_languages.split(','); track $index) {
                             <span class="badge text-bg-secondary">{{item | titlecase}}</span>
                             }
                         </div>
@@ -86,8 +86,9 @@
                     <div>
                         <h5 class="mb-3">Streaming Platforms</h5>
                         @for (item of movie.platforms; track $index) {
-                        <a [href]="item.link" [title]="item.name | titlecase" target="_blank">
-                            <img [src]="item.img" class="platform_img rounded-2 img-fluid" [alt]="item.name">
+                        <a [href]="streamingPlatforms[item].link" (click)="copyToClipboard(movie.movieName)" [title]="streamingPlatforms[item].name | titlecase"
+                            target="_blank">
+                            <img [src]="streamingPlatforms[item].img" class="platform_img rounded-2 img-fluid" [alt]="streamingPlatforms[item].name">
                         </a>
                         }
                     </div>
