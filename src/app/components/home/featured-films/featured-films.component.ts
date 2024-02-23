@@ -17,6 +17,10 @@ export class FeaturedFilmsComponent {
   moviesService: MoviesService = inject(MoviesService);
 
   ngOnInit() {
-    // this.featuredMoviesList = this.moviesService.moviesList;
+    this.moviesService.fetchAllMovies().subscribe({
+      next: (movies) => {
+        this.featuredMoviesList = movies;
+      }
+    });
   }
 }
