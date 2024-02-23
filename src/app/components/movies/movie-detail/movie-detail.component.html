@@ -54,7 +54,7 @@
                             <span>
                                 @for (person of movie.cast.split(','); track $index) {
                                 <!-- <a [href]="'https://www.google.com/search?q=' + person + ' from ' + movie.title" -->
-                                <a [href]="'https://www.google.com/search?q=cast+of+' + movie.title" target="_blank">
+                                <a [href]="'https://www.google.com/search?q=cast+of+' + movie.movieName" target="_blank">
                                     {{person | titlecase}}
                                 </a>
                                 @if ($index !== movie.cast.split(',').length - 1) {
