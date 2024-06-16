@@ -1,30 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { HeaderComponent } from './components/home/header/header.component';
-import { HomeComponent } from './components/home/home.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { FeaturedFilmsComponent } from './components/home/featured-films/featured-films.component';
+import { AppRoutingModule } from '@app/app-routing.module';
+import { AppComponent } from '@app/app.component';
+import { HeaderComponent } from '@app/components/home/header/header.component';
+import { HomeComponent } from '@app/components/home/home.component';
+import { FeaturedFilmsComponent } from '@app/components/home/featured-films/featured-films.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FooterComponent } from './components/footer/footer.component';
-import { MoviesComponent } from './components/movies/movies.component';
-import { MovieDetailComponent } from './components/movies/movie-detail/movie-detail.component';
-import { MovieCardComponent } from './components/movies/movie-card/movie-card.component';
+import { MoviesComponent } from '@app/components/movies/movies.component';
+import { MovieDetailComponent } from '@app/components/movies/movie-detail/movie-detail.component';
 import { ClipboardModule } from 'ngx-clipboard';
 import { HttpClientModule } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AngularMaterialModule } from '@app/angular-material.module';
+import { SharedModule } from '@shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from '../environments/environment';
+import { MovieCardComponent } from '@app/components/movies/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HeaderComponent,
     HomeComponent,
-    NotFoundComponent,
     FeaturedFilmsComponent,
-    FooterComponent,
     MoviesComponent,
     MovieDetailComponent,
     MovieCardComponent
@@ -34,9 +35,17 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FontAwesomeModule,
     ClipboardModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+    // AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

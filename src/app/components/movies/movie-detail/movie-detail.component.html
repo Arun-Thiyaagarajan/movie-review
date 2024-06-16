@@ -1,7 +1,10 @@
 <section class="movie-detail">
-    <div class="bg-dark text-light p-5 pb-3">
+    <div class="bg-dark text-light px-5 py-3">
         <div class="container-md container-fluid">
-            <!-- <button class="btn btn-primary mb-3" routerLink="../../">Back</button> -->
+            <!-- <button class="btn btn-link mb-1 orange text-decoration-none" [routerLink]="['/','movies']">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span class="ms-1">Back</span>
+            </button> -->
             <div class="details d-flex flex-md-row flex-column">
 
                 <img [src]="movie.image" class="img-fluid rounded-3 me-4 img" alt="">
@@ -10,14 +13,13 @@
                     <h2 class="fw-bold">{{movie.movieName | titlecase}}
                         <small class="text-secondary me-2">({{movie.year}})</small>
                         <h6 class="d-inline">
-                            <span class="badge rounded-pill text-bg-success user-select-none">{{movie.certficate |
-                                uppercase}}</span>
+                            <span class="badge rounded-pill text-bg-success user-select-none">{{movie.certficate | uppercase}}</span>
                         </h6>
                     </h2>
                     <div class="mb-3">
-                        @for (item of movie.categories; track $index) {
+                        @for (item of movie.categories; track $index; let last = $last) {
                         <a routerLink="" class="cat-text text-warning">{{item | titlecase}}</a>
-                        @if ($index !== movie.categories.length - 1) {
+                        @if (!last) {
                         <span> • </span>
                         }
                         }
@@ -34,11 +36,11 @@
                         <p class="hstack gap-3">
                             <span class="fw-bold">{{cast.label}}</span>
                             <span>
-                                @for (people of movie[cast.property].split(','); track $index) {
+                                @for (people of movie[cast.property].split(','); track $index; let last = $last) {
                                 <a target="_blank" [href]="'https://www.google.com/search?q=' + people">
                                     {{people | titlecase}}
                                 </a>
-                                @if ($index !== movie[cast.property].split(',').length - 1) {
+                                @if (!last) {
                                 <span> • </span>
                                 }
                                 }
@@ -52,12 +54,13 @@
                         <p class="d-flex gap-3">
                             <span class="fw-bold">Cast</span>
                             <span>
-                                @for (person of movie.cast.split(','); track $index) {
+                                @for (person of movie.cast.split(','); track $index; let last = $last) {
                                 <!-- <a [href]="'https://www.google.com/search?q=' + person + ' from ' + movie.title" -->
-                                <a [href]="'https://www.google.com/search?q=cast+of+' + movie.movieName" target="_blank">
+                                <a [href]="'https://www.google.com/search?q=cast+of+' + movie.movieName"
+                                    target="_blank">
                                     {{person | titlecase}}
                                 </a>
-                                @if ($index !== movie.cast.split(',').length - 1) {
+                                @if (!last) {
                                 <span> • </span>
                                 }
                                 }
@@ -79,16 +82,17 @@
                     <div class="mb-4">
                         <h5 class="mb-3">IMDb Rating</h5>
                         <h4 class="imdb">
-                            <i class="fa-solid fa-star orange me-2"></i>
+                            <app-icon class="orange me-2" [icon]="['fas', 'star']"></app-icon>
                             <span>{{movie.rating}} / 10</span>
                         </h4>
                     </div>
                     <div>
                         <h5 class="mb-3">Streaming Platforms</h5>
                         @for (item of movie.platforms; track $index) {
-                        <a [href]="streamingPlatforms[item].link" (click)="copyToClipboard(movie.movieName)" [title]="streamingPlatforms[item].name | titlecase"
-                            target="_blank">
-                            <img [src]="streamingPlatforms[item].img" class="platform_img rounded-2 img-fluid" [alt]="streamingPlatforms[item].name">
+                        <a [href]="streamingPlatforms[item].link" (click)="copyToClipboard(movie.movieName)"
+                            [matTooltip]="streamingPlatforms[item].name | titlecase" target="_blank">
+                            <img [src]="streamingPlatforms[item].img" class="platform_img rounded-2 img-fluid"
+                                [alt]="streamingPlatforms[item].name">
                         </a>
                         }
                     </div>

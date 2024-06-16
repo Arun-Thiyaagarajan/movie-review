@@ -45,3 +45,5 @@ section {
 .orange-bg {
     background-color: var(--orange);
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

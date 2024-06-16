@@ -15,7 +15,7 @@
                                     <small class="text-secondary">({{movie.language | titlecase}})</small>
                                 </div>
                                 <p class="text-success">
-                                    <fa-icon [icon]="icon"></fa-icon>
+                                    <app-icon [icon]="['fas', 'star']"></app-icon>
                                     {{movie.rating}}
                                 </p>
                             </div>
@@ -26,7 +26,7 @@
             </div>
             <a routerLink="/movies" class="btn btn-light mt-3">
                 See More
-                <fa-icon class="text-secondary" [icon]="rightIcon"></fa-icon>
+                <app-icon class="text-secondary" [icon]="['fas', 'chevron-right']"></app-icon>
             </a>
         </div>
     </div>

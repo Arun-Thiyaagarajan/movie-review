@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Movies } from '../Model/Movie';
+import { Movies } from '@app/Model/Movie';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
 
@@ -8,9 +8,10 @@ import { map } from 'rxjs';
 })
 export class MoviesService {
 
-  http: HttpClient = inject(HttpClient);
+  feelGoodMovies: Movies[] = [];
 
   // moviesList: Movies[] = [
+
   //   {
   //     available_languages: ['tamil', 'malayalam', 'telugu', 'kannada', 'hindi'],
   //     cast: ['manikandan', 'ramesh thilak', 'raichal rabecca', 'meetha raghunath', 'balaji sakthivel', 'sree arthi'],
@@ -129,6 +130,8 @@ export class MoviesService {
   //   },
   // ];
 
+  http: HttpClient = inject(HttpClient);
+
   fetchAllMovies() {
     return this.http.get("https://movie-review-angular-default-rtdb.firebaseio.com/movie-details.json")
       .pipe(map(response => {
@@ -139,8 +142,19 @@ export class MoviesService {
             movie.push({ ...response[key], id: key });
           }
         }
+        
         return movie;
       }));
   }
+
+  // filterFeelGoodMovies() {
+  //   this.fetchAllMovies().subscribe({
+  //     next: (movies) => {
+  //       this.feelGoodMovies = movies.filter(movie => {
+  //         movie.categories.includes('feel good');
+  //       });
+  //     }
+  //   });
+  // }
 
 }

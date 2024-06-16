@@ -1,5 +1,5 @@
-<section class="movies p-5 mb-4">
-    <div class="container">
+<section class="movies p-5 px-0 px-md-5 mb-4">
+    <div class="container-md">
 
         <div class="search-container d-flex justify-content-center w-100 mb-5">
             <div class="input-group w-50">
@@ -9,69 +9,38 @@
             </div>
         </div>
 
-        <div class="feel-good mb-5">
+        <div class="d-flex justify-content-center m-5" *ngIf="isLoading">
+            <div class="spinner-border text-danger" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+        <div class="all-movies mb-5" *ngIf="moviesList.length !== 0 && !isLoading">
             <h4 class="mb-3">
                 <a class="category-title" routerLink="#">
                     All Movies
                     <fa-icon class="ms-1" [icon]="rightIcon"></fa-icon>
                 </a>
             </h4>
-            <div class="row g-4 mb-4">
+            <div class="movies-carousel snaps-inline">
                 @for (movie of moviesList; track $index) {
-                <a [routerLink]="'/movies/movie/' + movie.id"
-                    class="col-xl-2 col-lg-3 col-md-4 d-flex justify-content-center" [title]="movie.movieName| titlecase"
-                    [state]="movie">
-                    <article class="card border-0">
-                        <img [src]="movie.image" class="card-img-top img img-fluid" [alt]="movie.movieName| titlecase">
-                        <div class="card-body">
-                            <div class="card-text d-flex justify-content-between fw-medium">
-                                <div>
-                                    <p class="title text-truncate lh-sm mb-0">{{movie.movieName| titlecase}}</p>
-                                    <small class="text-secondary">({{movie.language | titlecase}})</small>
-                                </div>
-                                <p class="text-success">
-                                    <fa-icon [icon]="icon"></fa-icon>
-                                    {{movie.rating}}
-                                </p>
-                            </div>
-                        </div>
-                    </article>
-                </a>
-                <!-- <app-movie-card [movie]="movie"></app-movie-card> -->
+                    <app-movie-card [movie]="movie"></app-movie-card>
                 }
             </div>
-        </div>
-
-        <div class="all-movies">
-            <h4 class="mb-3">
-                <a class="category-title" routerLink="#">
-                    Feel Good
-                    <fa-icon class="ms-1" [icon]="rightIcon"></fa-icon>
-                </a>
-            </h4>
-            <div class="row g-4 mb-4">
-                @for (movie of moviesList; track $index) {
-                <a [routerLink]="'/movies/movie/' + movie.id" class="col-lg-2 d-flex justify-content-center"
-                    [title]="movie.movieName| titlecase" [state]="movie">
-                    <article class="card border-0">
-                        <img [src]="movie.image" class="card-img-top img img-fluid" alt="film">
-                        <div class="card-body">
-                            <div class="card-text d-flex justify-content-between fw-medium">
-                                <div>
-                                    <p class="title text-truncate lh-sm mb-0">{{movie.movieName| titlecase}}</p>
-                                    <small class="text-secondary">({{movie.language | titlecase}})</small>
-                                </div>
-                                <p class="text-success">
-                                    <fa-icon [icon]="icon"></fa-icon>
-                                    {{movie.rating}}
-                                </p>
-                            </div>
-                        </div>
-                    </article>
-                </a>
-                }
+    </div>
+    
+    <div class="feel-good" *ngIf="moviesList.length !== 0">
+        <h4 class="mb-3">
+            <a class="category-title" routerLink="#">
+                Feel Good
+                <fa-icon class="ms-1" [icon]="rightIcon"></fa-icon>
+            </a>
+        </h4>
+        <div class="movies-carousel snaps-inline">
+            @for (movie of moviesList; track $index) {
+                <app-movie-card [movie]="movie"></app-movie-card>
+            }
             </div>
         </div>
-
     </div>
 </section>

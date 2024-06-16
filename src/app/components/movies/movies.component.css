@@ -2,22 +2,6 @@
     background-color: var(--orange);
 }
 
-.card {
-    width: 14rem;
-    cursor: pointer;
-    transition: var(--transition);
-    box-shadow: var(--box-shadow-1);
-
-    .title {
-        max-width: 110px;
-    }
-
-    .img {
-        height: 275px;
-        object-fit: cover;
-    }
-}
-
 .category-title {
     transition: var(--transition);
 }
@@ -26,7 +10,35 @@
     color: var(--orange);
 }
 
-.card:hover {
-    box-shadow: var(--box-shadow-2);
-    transform: scale(1.02);
+.movies-carousel {
+    --spacer: 1rem;
+    display: grid;
+    gap: var(--spacer);
+    grid-auto-flow: column;
+    grid-auto-columns: 60%;
+
+    padding: var(--spacer) 5px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+
+@media (min-width: 760px) {
+    .movies-carousel {
+        grid-auto-columns: 31%;
+    }
+}
+
+@media (min-width: 990px) {
+    .movies-carousel {
+        grid-auto-columns: 17%;
+    }
+}
+
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+    /* scroll-padding-inline: var(--spacer, 1rem); */
+}
+
+.snaps-inline>* {
+    scroll-snap-align: start;
 }

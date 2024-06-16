@@ -1,0 +1,18 @@
+<a [routerLink]="'/movies/movie/' + movie.id" class="movie-card-container"
+    [matTooltip]="movie.movieName| titlecase" [state]="movie">
+    <article class="card border-0">
+        <img [src]="movie.image" class="card-img-top img img-fluid" [alt]="movie.movieName| titlecase">
+        <div class="card-body">
+            <div class="card-text d-flex justify-content-between fw-medium">
+                <div>
+                    <p class="title text-truncate lh-sm mb-0">{{movie.movieName| titlecase}}</p>
+                    <small class="text-secondary">({{movie.language | titlecase}})</small>
+                </div>
+                <p class="text-success">
+                    <app-icon [icon]="['fas', 'star']"></app-icon>
+                    {{movie.rating}}
+                </p>
+            </div>
+        </div>
+    </article>
+</a>
