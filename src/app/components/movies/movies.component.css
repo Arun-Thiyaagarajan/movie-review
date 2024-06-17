@@ -24,6 +24,11 @@
     padding: var(--spacer) 5px;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+}
+
+.movies-carousel-carousel::-webkit-scrollbar {
+    display: none;
 }
 
 @media screen and (min-width: 760px) {
@@ -34,14 +39,13 @@
     .movies-carousel {
         grid-auto-columns: 31%;
     }
-    
+}
+
 @media screen and (min-width: 992px) {
     .search-bar {
         width: 50%;
     }
-    
-    }
-        .movies-carousel {
+    .movies-carousel {
         grid-auto-columns: 17%;
     }
     .snaps-inline {
