@@ -10,6 +10,10 @@
     color: var(--orange);
 }
 
+.search-bar {
+    width: 90%;
+}
+
 .movies-carousel {
     --spacer: 1rem;
     display: grid;
@@ -23,14 +27,25 @@
 }
 
 @media screen and (min-width: 760px) {
+    .search-bar {
+        width: 70%;
+    }
+
     .movies-carousel {
         grid-auto-columns: 31%;
     }
-}
-
+    
 @media screen and (min-width: 992px) {
-    .movies-carousel {
+    .search-bar {
+        width: 50%;
+    }
+    
+    }
+        .movies-carousel {
         grid-auto-columns: 17%;
+    }
+    .snaps-inline {
+        scroll-padding-inline: var(--spacer, 1rem);
     }
 }
 

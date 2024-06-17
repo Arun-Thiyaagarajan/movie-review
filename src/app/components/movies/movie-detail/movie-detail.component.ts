@@ -4,6 +4,7 @@ import { Movies } from '@app/Model/Movie';
 import { ClipboardService } from 'ngx-clipboard';
 import { ConfigData } from '@app/services/config-data';
 import { MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions } from '@angular/material/tooltip';
+import { SnackbarService } from '@app/services/snackbar.service';
 
 /** Custom options the configure the tooltip's default show/hide delays. */
 // export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
@@ -27,7 +28,8 @@ export class MovieDetailComponent implements OnInit {
     public configData: ConfigData,
     public router: Router,
     private activeRoute: ActivatedRoute,
-    private clipboardService: ClipboardService
+    private clipboardService: ClipboardService,
+    private snackBar: SnackbarService,
   ) { }
 
   ngOnInit() {
@@ -44,6 +46,7 @@ export class MovieDetailComponent implements OnInit {
 
   copyToClipboard(movieName: string): void {
     this.clipboardService.copyFromContent(movieName);
+    alert("Movie Name Copied To Clipboard!");
   }
 
   scrollToTop(): void {
