@@ -22,13 +22,13 @@
     overscroll-behavior-inline: contain;
 }
 
-@media (min-width: 760px) {
+@media screen and (min-width: 760px) {
     .movies-carousel {
         grid-auto-columns: 31%;
     }
 }
 
-@media (min-width: 990px) {
+@media screen and (min-width: 992px) {
     .movies-carousel {
         grid-auto-columns: 17%;
     }

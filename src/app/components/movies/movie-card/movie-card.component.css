@@ -18,8 +18,9 @@
         object-fit: cover;
     }
 }
-
-.card:hover {
-    box-shadow: var(--box-shadow-2);
-    transform: scale(1.02);
+@media screen and (min-width: 992px) {
+    .card:hover {
+        box-shadow: var(--box-shadow-2);
+        transform: scale(1.02);
+    }
 }
