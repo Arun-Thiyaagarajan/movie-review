@@ -1,6 +1,6 @@
 <a [routerLink]="'/movies/movie/' + movie.id" class="movie-card-container"
     [matTooltip]="movie.movieName| titlecase" [state]="movie">
-    <article class="card border-0">
+    <article matRipple class="card border-0">
         <img [src]="movie.image" class="card-img-top img img-fluid" [alt]="movie.movieName| titlecase">
         <div class="card-body">
             <div class="card-text d-flex justify-content-between fw-medium">

@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
 import { Movies } from '@app/Model/Movie';
+import { CommonService } from '@app/services/common.service';
 import { MoviesService } from '@app/services/movies.service';
 import { faChevronRight, faStar } from '@fortawesome/free-solid-svg-icons';
 @Component({
@@ -21,13 +22,17 @@ export class MoviesComponent implements OnInit {
     });
   }
 
+  constructor(
+    private commonService: CommonService,
+  ) { }
+
   ngOnInit() {
     this.scrollToTop();
 
-    this.isLoading = true;
+    this.commonService.setLoader(true);
     this.moviesService.fetchAllMovies().subscribe({
       next: (movies) => {
-        this.isLoading = false;
+        this.commonService.setLoader(false);
         this.moviesList = movies;
       }
     }); 
