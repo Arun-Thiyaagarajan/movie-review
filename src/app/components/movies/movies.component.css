@@ -15,11 +15,11 @@
 }
 
 .movies-carousel {
-    --spacer: 1rem;
+    --spacer: 0.5rem;
     display: grid;
     gap: var(--spacer);
     grid-auto-flow: column;
-    grid-auto-columns: 60%;
+    grid-auto-columns: 35%;
 
     padding: var(--spacer) 5px;
     overflow-x: auto;
