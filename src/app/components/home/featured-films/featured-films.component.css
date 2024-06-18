@@ -1,13 +1,13 @@
 .featured {
-    margin: 5rem 0;
+    margin: 3rem 0 5rem;
 }
 
 .movies-carousel {
-    --spacer: 1rem;
+    --spacer: 0.5rem;
     display: grid;
     gap: var(--spacer);
     grid-auto-flow: column;
-    grid-auto-columns: 60%;
+    grid-auto-columns: 35%;
 
     padding: var(--spacer) 5px;
     overflow-x: auto;
@@ -43,7 +43,8 @@
         width: 50%;
     }
     .movies-carousel {
-        grid-auto-columns: 17%;
+        grid-auto-columns: 12%;
+        padding-bottom: 1rem;
     }
     .snaps-inline {
         scroll-padding-inline: var(--spacer, 1rem);

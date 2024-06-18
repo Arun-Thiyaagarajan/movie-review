@@ -1,5 +1,5 @@
 .hero {
-    min-height: 92vh;
+    min-height: 60vh;
 }
 
 .content {
@@ -19,6 +19,9 @@
 }
 
 @media (min-width: 768px) {
+    .hero {
+        min-height: 92vh;
+    }
     .content {
         width: 50%;
     }
