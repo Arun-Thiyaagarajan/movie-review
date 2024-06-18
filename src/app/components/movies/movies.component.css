@@ -19,7 +19,7 @@
     display: grid;
     gap: var(--spacer);
     grid-auto-flow: column;
-    grid-auto-columns: 35%;
+    grid-auto-columns: 38%;
 
     padding: var(--spacer) 5px;
     overflow-x: auto;
