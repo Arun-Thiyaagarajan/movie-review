@@ -45,5 +45,34 @@ section {
 .orange-bg {
     background-color: var(--orange);
 }
+
+.skeleton {
+    opacity: .7;
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-dark {
+    opacity: .7;
+    animation: skeleton-dark-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-dark-loading {
+    0% {
+        background-color: hsl(199, 15%, 72%);
+    }
+    100% {
+        background-color: hsl(205, 5%, 48%);
+    }
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+        background-color: hsl(200, 20%, 95%);
+    }
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

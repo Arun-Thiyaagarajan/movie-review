@@ -34,10 +34,6 @@ a:hover {
     width: 95%;
 }
 
-/* .imdb>a:hover {
-    text-decoration: underline;
-} */
-
 .platform_img {
     width: 50px;
     height: 50px;
@@ -55,6 +51,13 @@ a:hover {
 .technical-cast a, .cast-and-crew a {
     color: #4D83C9;
 }
+
+.skeleton-text {
+    width: 100%;
+    height: 1rem;
+    border-radius: 3px;
+}
+
 
 @media (max-width: 768px) {
 

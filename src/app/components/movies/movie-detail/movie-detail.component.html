@@ -1,99 +1,138 @@
 <section class="movie-detail">
     <div class="movie-detail-section bg-dark text-light px-3 px-md-5 py-3">
         <div class="container-md container-fluid">
-            <!-- <button class="btn btn-link mb-1 orange text-decoration-none" [routerLink]="['/','movies']">
-                <i class="fa-solid fa-chevron-left"></i>
-                <span class="ms-1">Back</span>
-            </button> -->
             <div class="details d-flex flex-md-row flex-column">
-
-                <img [src]="movie.image" class="img-fluid rounded-3 me-4 img" alt="">
+                @if (isLoading) {
+                    <img class="img-fluid rounded-3 me-4 img skeleton-dark">
+                } @else {
+                    <img [src]="movie.image" class="img-fluid rounded-3 me-4 img" [ngClass]="isLoading ? 'skeleton-dark' : ''" [alt]="movie.name">
+                }
 
                 <div class="content me-4">
-                    <h2 class="fw-bold">{{movie.movieName | titlecase}}
-                        <small class="text-secondary me-2">({{movie.year}})</small>
-                        <h6 class="d-inline">
-                            <span class="badge rounded-pill text-bg-success user-select-none">{{movie.certficate | uppercase}}</span>
-                        </h6>
-                    </h2>
+                    @if (isLoading) {
+                        <div class="skeleton-dark skeleton-text mb-1" style="height: 2rem;"></div>
+                    } @else {
+                        <h2 class="fw-bold">{{movie.movieName | titlecase}}
+                            <small class="text-secondary me-2">({{movie.year}})</small>
+                            <h6 class="d-inline">
+                                <span class="badge rounded-pill text-bg-success user-select-none">{{movie.certificate | uppercase}}</span>
+                            </h6>
+                        </h2>
+                    }
                     <div class="mb-3">
-                        @for (item of movie.categories; track $index; let last = $last) {
-                        <a routerLink="" class="cat-text text-warning">{{item | titlecase}}</a>
-                        @if (!last) {
-                        <span> • </span>
-                        }
+                        @if (isLoading) {
+                            <div class="skeleton-dark skeleton-text mb-1"></div>
+                        } @else {
+                            @for (item of movie.categories; track $index; let last = $last) {
+                                <a routerLink="" class="cat-text text-warning">{{item | titlecase}}</a>
+                                @if (!last) {
+                                    <span> • </span>
+                                }
+                            }
                         }
                     </div>
                     <div class="mb-4">
-                        <p class="description lead">{{movie.description}}</p>
+                        @if (isLoading) {
+                            @for (_ of [1,2,3,4,5]; track $index) {
+                                <div class="skeleton-text skeleton-dark mb-1"></div>
+                            }
+                        } @else {
+                            <p class="description lead">{{movie.description}}</p>
+                        }
                     </div>
-
+                    
                     <hr>
-
+                    
                     <div class="technical-cast">
-                        @for (cast of technicalCast; track $index)
-                        {
-                        <p class="hstack gap-3">
-                            <span class="fw-bold">{{cast.label}}</span>
-                            <span>
-                                @for (people of movie[cast.property].split(','); track $index; let last = $last) {
-                                <a target="_blank" [href]="'https://www.google.com/search?q=' + people">
-                                    {{people | titlecase}}
-                                </a>
-                                @if (!last) {
-                                <span> • </span>
-                                }
-                                }
-                            </span>
-                        </p>
-                        <hr>
+                        @if (isLoading) {
+                            @for (_ of [1,2,3]; track $index) {
+                                <div class="skeleton-text skeleton-dark mb-1" style="height: 1.5rem;"></div>
+                                <hr>
+                            }
+                        } @else {
+                            @for (cast of technicalCast; track $index) {
+                            <p class="hstack gap-3">
+                                <span class="fw-bold">{{cast.label}}</span>
+                                <span>
+                                    @for (people of movie[cast.property].split(','); track $index; let last = $last) {
+                                    <a target="_blank" [href]="'https://www.google.com/search?q=' + people">
+                                        {{people | titlecase}}
+                                    </a>
+                                    @if (!last) {
+                                    <span> • </span>
+                                    }
+                                    }
+                                </span>
+                            </p>
+                            <hr>
+                            }
                         }
                     </div>
 
                     <div class="cast-and-crew">
-                        <p class="d-flex gap-3">
-                            <span class="fw-bold">Cast</span>
-                            <span>
-                                @for (person of movie.cast.split(','); track $index; let last = $last) {
-                                <!-- <a [href]="'https://www.google.com/search?q=' + person + ' from ' + movie.title" -->
-                                <a [href]="'https://www.google.com/search?q=cast+of+' + movie.movieName"
-                                    target="_blank">
-                                    {{person | titlecase}}
-                                </a>
-                                @if (!last) {
-                                <span> • </span>
-                                }
-                                }
-                            </span>
-                        </p>
+                        @if (isLoading) {
+                            <div class="skeleton-dark skeleton-text mb-1" style="height: 1.5rem;"></div>
+                        } @else {
+                            <p class="d-flex gap-3">
+                                <span class="fw-bold">Cast</span>
+                                <span>
+                                    @for (person of movie.cast.split(','); track $index; let last = $last) {
+                                    <a [href]="'https://www.google.com/search?q=cast+of+' + movie.movieName"
+                                        target="_blank">
+                                        {{person | titlecase}}
+                                    </a>
+                                    @if (!last) {
+                                        <span> • </span>
+                                    }
+                                    }
+                                </span>
+                            </p>
+                        }
                     </div>
 
                 </div>
 
                 <div class="other-details">
-                    <div class="mb-4" *ngIf="movie.avail_languages">
-                        <h5 class="mb-3">Languages</h5>
-                        <div class="d-flex hstack gap-1 flex-wrap">
-                            @for (item of movie.avail_languages.split(','); track $index) {
-                            <span class="badge text-bg-secondary">{{item | titlecase}}</span>
-                            }
-                        </div>
+                    <div class="mb-4">
+                        @if (isLoading) {
+                            <div class="skeleton-text skeleton-dark mb-2" style="height: 1.25rem;"></div>
+                            <div class="skeleton-text skeleton-dark mb-1"></div>
+                        } @else {
+                            <h5 class="mb-3">Languages</h5>
+                            <div class="d-flex hstack gap-1 flex-wrap">
+                                @for (item of movie.avail_languages.split(','); track $index) {
+                                <span class="badge text-bg-secondary">{{item | titlecase}}</span>
+                                }
+                            </div>
+                        }
                     </div>
                     <div class="mb-4">
-                        <h5 class="mb-3">IMDb Rating</h5>
-                        <h4 class="imdb">
-                            <app-icon class="orange me-2" [icon]="['fas', 'star']"></app-icon>
-                            <span>{{movie.rating}} / 10</span>
-                        </h4>
+                        @if (isLoading) {
+                            <div class="skeleton-text skeleton-dark mb-3" style="height: 1.25rem;"></div>
+                            <div class="skeleton-text skeleton-dark mb-1" style="height: 1.5rem;"></div>
+                        } @else {
+                            <h5 class="mb-3">IMDb Rating</h5>
+                            <h4 class="imdb">
+                                <app-icon class="orange me-2" [icon]="['fas', 'star']"></app-icon>
+                                <span>{{movie.rating}} / 10</span>
+                            </h4>
+                        }
                     </div>
                     <div>
-                        <h5 class="mb-3">Streaming Platforms</h5>
-                        @for (item of movie.platforms; track $index) {
-                        <a [href]="streamingPlatforms[item].link" (click)="copyToClipboard(movie.movieName)"
-                            [matTooltip]="streamingPlatforms[item].name | titlecase" target="_blank">
-                            <img [src]="streamingPlatforms[item].img" class="platform_img rounded-2 img-fluid"
-                                [alt]="streamingPlatforms[item].name">
-                        </a>
+                        @if (isLoading) {
+                            <div class="skeleton-text skeleton-dark mb-3" style="height: 1.25rem;"></div>
+                            @for (_ of [1,2,3,4,5]; track $index) {
+                                <img class="platform_img rounded-2 img-fluid skeleton-dark" >
+                            }
+                        } @else {
+                            <h5 class="mb-3">Streaming Platforms</h5>
+                            @for (item of movie.platforms; track $index) {
+                            <a [href]="streamingPlatforms[item].link" (click)="copyToClipboard(movie.movieName)"
+                                [matTooltip]="streamingPlatforms[item].name | titlecase" target="_blank">
+                                <img [src]="streamingPlatforms[item].img" class="platform_img rounded-2 img-fluid"
+                                    [alt]="streamingPlatforms[item].name">
+                            </a>
+                            }
                         }
                     </div>
                 </div>
