@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Movies } from '@app/Model/Movie';
+import { CommonService } from '@app/services/common.service';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -9,8 +10,13 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 })
 export class MovieCardComponent {
   @Input() movie: Movies;
+  public isLoading: boolean = false;
 
-  constructor() { }
+  constructor(
+    public commonService: CommonService,
+  ) { }
   
-  ngOnInit() {}
+  ngOnInit() {
+    this.isLoading = this.commonService.isLoading;
+  }
 }

@@ -30,10 +30,10 @@ export class NavbarComponent {
   ) { }
   
   ngOnInit() {
-    if (this.router.url.includes('/movies/movie')) {
-      this.backButton = true;
-    } else {
-      this.backButton = false;
-    }
+    // if (this.router.url.includes('/movies/movie')) {
+    //   this.backButton = true;
+    // } else {
+    //   this.backButton = false;
+    // }
   }
 }

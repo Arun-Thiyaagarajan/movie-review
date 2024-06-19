@@ -9,12 +9,13 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'movies', component: MoviesComponent },
-  {
-    path: 'movies',
-    children: [
-      { path: 'movie/:id', component: MovieDetailComponent },
-    ],
-  },
+  { path: 'movies/movie/:id', component: MovieDetailComponent },
+  // {
+  //   path: 'movies',
+  //   children: [
+  //     { path: 'movie/:id', component: MovieDetailComponent },
+  //   ],
+  // },
   { path: '**', component: NotFoundComponent },
 ];
 

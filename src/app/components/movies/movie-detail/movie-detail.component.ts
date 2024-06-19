@@ -3,15 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Movies } from '@app/Model/Movie';
 import { ClipboardService } from 'ngx-clipboard';
 import { ConfigData } from '@app/services/config-data';
-import { MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions } from '@angular/material/tooltip';
 import { SnackbarService } from '@app/services/snackbar.service';
-
-/** Custom options the configure the tooltip's default show/hide delays. */
-// export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
-//   showDelay: 1000,
-//   hideDelay: 1000,
-//   touchendHideDelay: 1000,
-// };
+import { MoviesService } from '@app/services/movies.service';
+import { CommonService } from '@app/services/common.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -23,25 +17,32 @@ export class MovieDetailComponent implements OnInit {
   public movie: any;
   public technicalCast: any;
   public streamingPlatforms: any;
+  public isLoading: boolean = true;
   
   constructor(
     public configData: ConfigData,
     public router: Router,
-    private activeRoute: ActivatedRoute,
     private clipboardService: ClipboardService,
+    private activeRoute: ActivatedRoute,
     private snackBar: SnackbarService,
+    private moviesService: MoviesService,
+    private commonService: CommonService
   ) { }
 
   ngOnInit() {
-    // this.activeRoute.data.subscribe((data: Movies) => {
-    //   this.movie = data;
-    // });
-    // this.movie = this.router.getCurrentNavigation().extras.state;
     this.scrollToTop();
     this.streamingPlatforms = {...this.configData.streamingPlatforms};
     this.technicalCast = [...this.configData.technicalCast];
-    this.movie = history.state;
-    // console.log(this.movie);
+
+    const movieId = this.activeRoute.snapshot.paramMap.get('id');
+    if (movieId) {
+      this.commonService.isLoading = true;
+      this.moviesService.fetchMovieById(movieId).subscribe((movie) => {
+        this.movie = movie;
+        this.commonService.isLoading = false;
+        this.isLoading = false;
+      });
+    }
   }
 
   copyToClipboard(movieName: string): void {
