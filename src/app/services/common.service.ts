@@ -9,7 +9,10 @@ export class CommonService {
 
   constructor() { }
 
-  public setLoader(value: boolean){
-    this.isLoading = value;
+  public scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 }

@@ -30,7 +30,7 @@ export class MovieDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.scrollToTop();
+    this.commonService.scrollToTop();
     this.streamingPlatforms = {...this.configData.streamingPlatforms};
     this.technicalCast = [...this.configData.technicalCast];
 
@@ -45,15 +45,13 @@ export class MovieDetailComponent implements OnInit {
     }
   }
 
+  public navigateToPlatform(url: string, movieName: string) {
+    this.copyToClipboard(movieName);
+    window.open(url, '_blank');
+  }
+
   copyToClipboard(movieName: string): void {
     this.clipboardService.copyFromContent(movieName);
     alert("Movie Name Copied To Clipboard!");
-  }
-
-  scrollToTop(): void {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
   }
 }

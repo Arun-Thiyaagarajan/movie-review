@@ -46,7 +46,7 @@
         width: 50%;
     }
     .movies-carousel {
-        grid-auto-columns: 12%;
+        grid-auto-columns: 13%;
         padding-bottom: 1rem;
     }
     .snaps-inline {

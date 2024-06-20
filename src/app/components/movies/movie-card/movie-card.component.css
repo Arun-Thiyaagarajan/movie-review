@@ -4,6 +4,7 @@
     transition: var(--transition);
     box-shadow: var(--box-shadow-1);
     font-size: 0.7rem;
+
     .title {
         max-width: 72px;
     }
@@ -12,6 +13,7 @@
         inline-size: 100%;
         height: 130px;
         object-fit: cover;
+        object-position: 50% 30%;
     }
     
     .skeleton-text {
@@ -24,6 +26,10 @@
 @media screen and (min-width: 992px) {
     .card {
         font-size: 0.8rem;
+
+        .title {
+            max-width: 105px;
+        }
     }
 
     .card:hover {
