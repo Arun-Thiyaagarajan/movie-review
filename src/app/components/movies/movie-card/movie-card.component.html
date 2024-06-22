@@ -1,5 +1,5 @@
 <a [routerLink]="['/movies/movie', movie.id]" class="movie-card-container"
-    [matTooltip]="movie.movieName| titlecase">
+    [title]="movie.movieName| titlecase">
     <article matRipple class="card border-0">
         <img [src]="movie.image" class="card-img-top img img-fluid" [ngClass]="isLoading ? 'skeleton' : ''" [alt]="movie.movieName| titlecase">
         <div class="card-body p-2">

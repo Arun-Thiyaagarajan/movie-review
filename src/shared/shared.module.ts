@@ -6,7 +6,10 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from '@shared/components/footer/footer.component';
 import { NotFoundComponent } from '@shared/components/not-found/not-found.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { SlugifyPipe } from './pipes/slugify.pipe';
+import { SlugifyPipe } from '@shared/pipes/slugify.pipe';
+import { EmojiPickerComponent } from '@shared/components/emoji-picker/emoji-picker.component';
+import { EmojiModule } from '@ctrl/ngx-emoji-mart/ngx-emoji';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 @NgModule({
   declarations: [
@@ -14,6 +17,7 @@ import { SlugifyPipe } from './pipes/slugify.pipe';
     FooterComponent,
     NotFoundComponent,
     SlugifyPipe,
+    EmojiPickerComponent,
   ],
   exports: [
     NavbarComponent,
@@ -21,13 +25,16 @@ import { SlugifyPipe } from './pipes/slugify.pipe';
     NotFoundComponent,
     IconModule,
     MatProgressBarModule,
-    SlugifyPipe
+    SlugifyPipe,
+    EmojiPickerComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     IconModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    EmojiModule,
+    PickerModule
   ]
 })
 export class SharedModule { }

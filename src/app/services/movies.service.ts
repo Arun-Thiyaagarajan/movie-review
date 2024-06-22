@@ -8,8 +8,6 @@ import { Observable, map } from 'rxjs';
 })
 export class MoviesService {
 
-  feelGoodMovies: Movies[] = [];
-
   constructor(
     private http: HttpClient,
   ) {}

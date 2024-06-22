@@ -1,0 +1,134 @@
+<section class="section container py-5 px-3 px-md-0 comment-section">
+    <main class="all-comments">
+        <div class="mb-4">
+            <h3 class="fw-bold">All Reviews</h3>
+        </div>
+        <div class="input-comment mb-4">
+            <img src="https://htmlcolorcodes.com/assets/images/colors/dark-gray-color-solid-background-1920x1080.png" class="profile-img" alt="">
+            <!-- <div class="profile-img"></div> -->
+            <form class="comment-form" [formGroup]="commentsForm">
+                <mat-form-field class="comment-form-field mat-warn">
+                    <mat-label>Leave your review</mat-label>
+                    <textarea 
+                        matInput placeholder="It makes me feel..." formControlName="comments" 
+                        (input)="onInputChange()" (focus)="onFocus()"
+                        cdkTextareaAutosize cdkAutosizeMinRows="1"></textarea>
+                    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                </mat-form-field>
+                <div class="button-field" [ngClass]="isFocused ? 'show' : ''">
+                    <div class="emoji-picker">
+                        <button mat-mini-fab class="emoji-picker-btn mat-warn" (click)="toggleEmojiPicker()">
+                            @if (showEmojiPicker) {
+                                <mat-icon class="mat-icon-rtl-mirror">close</mat-icon>
+                            } @else {
+                                <mat-icon class="mat-icon-rtl-mirror">emoji_emotions</mat-icon>
+                            }
+                        </button>
+                        @if (showEmojiPicker) {
+                            <app-emoji-picker (emojiSelected)="addEmoji($event)"></app-emoji-picker>
+                        }
+                    </div>
+                    <div class="mat-button-group">
+                        <button type="button" class="mat-button" mat-stroked-button (click)="onReset()">Cancel</button>
+                        <button type="button" class="mat-button mat-warn" mat-flat-button [disabled]="commentsForm.get('comments').value === ''">Review</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="other-reviews-container mb-3">
+            <h5 class="fw-medium mb-0">Your Review</h5>
+            <article class="others-review your-review p-3">
+                <img src="https://htmlcolorcodes.com/assets/images/colors/dark-gray-color-solid-background-1920x1080.png" class="profile-img" alt="">
+                <div class="others-review-content">
+                    <p class="others-username mb-2">
+                        <span class="fw-medium me-2">{{'@arunthiyaagarajan'}}</span>
+                        <small class="posted-on text-secondary">3 days ago</small>
+                    </p>
+                    <p class="others-comment mb-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae magnam cum perferendis tempore quo reiciendis sapiente eum dicta alias at molestias, iusto, reprehenderit eveniet obcaecati quaerat beatae esse aut error.</p>
+                    <div class="others-review-btn-container">
+                        <span class="thumbs-icon d-flex align-items-center">
+                            <mat-icon class="me-2">thumb_up_off_alt</mat-icon>
+                            <small>200</small>
+                        </span>
+                        <span class="thumbs-icon d-flex align-items-center">
+                            <mat-icon>thumb_down_off_alt</mat-icon>
+                        </span>
+                        <span class="favourite-icon d-flex align-items-center">
+                            <mat-icon>favorite_border</mat-icon>
+                        </span>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="other-reviews-container">
+            <h5 class="fw-medium mb-0">Other Reviews</h5>
+            <article class="others-review p-3">
+                <img src="https://htmlcolorcodes.com/assets/images/colors/dark-gray-color-solid-background-1920x1080.png" class="profile-img" alt="">
+                <div class="others-review-content">
+                    <p class="others-username mb-2">
+                        <span class="fw-medium me-2">{{'@arunthiyaagarajan'}}</span>
+                        <small class="posted-on text-secondary">3 days ago</small>
+                    </p>
+                    <p class="others-comment mb-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae magnam cum perferendis tempore quo reiciendis sapiente eum dicta alias at molestias, iusto, reprehenderit eveniet obcaecati quaerat beatae esse aut error.</p>
+                    <div class="others-review-btn-container">
+                        <span class="thumbs-icon d-flex align-items-center">
+                            <mat-icon class="me-2">thumb_up_off_alt</mat-icon>
+                            <small>200</small>
+                        </span>
+                        <span class="thumbs-icon d-flex align-items-center">
+                            <mat-icon>thumb_down_off_alt</mat-icon>
+                        </span>
+                        <span class="favourite-icon d-flex align-items-center">
+                            <mat-icon>favorite_border</mat-icon>
+                        </span>
+                    </div>
+                </div>
+            </article>
+            <article class="others-review p-3">
+                <img src="https://htmlcolorcodes.com/assets/images/colors/dark-gray-color-solid-background-1920x1080.png" class="profile-img" alt="">
+                <div class="others-review-content">
+                    <p class="others-username mb-2">
+                        <span class="fw-medium me-2">{{'@arunthiyaagarajan'}}</span>
+                        <small class="posted-on text-secondary">3 days ago</small>
+                    </p>
+                    <p class="others-comment mb-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae magnam cum perferendis tempore quo reiciendis sapiente eum dicta alias at molestias, iusto, reprehenderit eveniet obcaecati quaerat beatae esse aut error.</p>
+                    <div class="others-review-btn-container">
+                        <span class="thumbs-icon d-flex align-items-center">
+                            <mat-icon class="me-2">thumb_up_off_alt</mat-icon>
+                            <small>200</small>
+                        </span>
+                        <span class="thumbs-icon d-flex align-items-center">
+                            <mat-icon>thumb_down_off_alt</mat-icon>
+                        </span>
+                        <span class="favourite-icon d-flex align-items-center">
+                            <mat-icon>favorite_border</mat-icon>
+                        </span>
+                    </div>
+                </div>
+            </article>
+            <article class="others-review p-3">
+                <img src="https://htmlcolorcodes.com/assets/images/colors/dark-gray-color-solid-background-1920x1080.png" class="profile-img" alt="">
+                <div class="others-review-content">
+                    <p class="others-username mb-2">
+                        <span class="fw-medium me-2">{{'@arunthiyaagarajan'}}</span>
+                        <small class="posted-on text-secondary">3 days ago</small>
+                    </p>
+                    <p class="others-comment mb-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae magnam cum perferendis tempore quo reiciendis sapiente eum dicta alias at molestias, iusto, reprehenderit eveniet obcaecati quaerat beatae esse aut error.</p>
+                    <div class="others-review-btn-container">
+                        <span class="thumbs-icon d-flex align-items-center">
+                            <mat-icon class="me-2">thumb_up_off_alt</mat-icon>
+                            <small>200</small>
+                        </span>
+                        <span class="thumbs-icon d-flex align-items-center">
+                            <mat-icon>thumb_down_off_alt</mat-icon>
+                        </span>
+                        <span class="favourite-icon d-flex align-items-center">
+                            <mat-icon>favorite_border</mat-icon>
+                        </span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <aside class="aside"></aside>
+</section>
