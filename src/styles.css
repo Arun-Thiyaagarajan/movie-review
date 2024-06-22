@@ -34,7 +34,7 @@ a {
     text-decoration: none;
 }
 
-section {
+section.section {
     scroll-margin-top: 4rem;
     min-height: 90vh;
 }

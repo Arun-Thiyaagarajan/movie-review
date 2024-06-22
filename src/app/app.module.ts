@@ -19,6 +19,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
 import { MovieCardComponent } from '@app/components/movies/movie-card/movie-card.component';
+import { CommentSectionComponent } from '@app/components/movies/movie-detail/comment-section/comment-section.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MovieCardComponent } from '@app/components/movies/movie-card/movie-card
     FeaturedFilmsComponent,
     MoviesComponent,
     MovieDetailComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    CommentSectionComponent,
   ],
   imports: [
     BrowserModule,
