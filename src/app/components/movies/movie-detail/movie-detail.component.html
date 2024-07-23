@@ -42,56 +42,60 @@
                         }
                     </div>
                     
-                    <hr>
-                    
-                    <div class="technical-cast">
-                        @if (isLoading) {
-                            @for (_ of [1,2,3]; track $index) {
-                                <div class="skeleton-text skeleton-dark mb-1" style="height: 1.5rem;"></div>
-                                <hr>
-                            }
-                        } @else {
-                            @for (cast of technicalCast; track $index) {
-                            <p class="hstack gap-3">
-                                <span class="fw-bold">{{cast.label}}</span>
-                                <span>
-                                    @for (people of movie[cast.property].split(','); track $index; let last = $last) {
-                                    <a target="_blank" [href]="'https://www.google.com/search?q=' + people">
-                                        {{people}}
-                                    </a>
-                                    @if (!last) {
-                                    <span> • </span>
+                    <mat-tab-group class="mat-warn" mat-stretch-tabs="true" mat-align-tabs="start">
+                        <mat-tab label="Cast Details">
+                            <div class="technical-cast mt-4">
+                                @if (isLoading) {
+                                    @for (_ of [1,2,3]; track $index) {
+                                        <div class="skeleton-text skeleton-dark mb-1" style="height: 1.5rem;"></div>
+                                        <hr>
                                     }
+                                } @else {
+                                    @for (cast of technicalCast; track $index) {
+                                    <p class="hstack gap-3">
+                                        <span class="fw-bold">{{cast.label}}</span>
+                                        <span>
+                                            @for (people of movie[cast.property].split(','); track $index; let last = $last) {
+                                            <a target="_blank" [href]="'https://www.google.com/search?q=' + people | strplus">
+                                                {{people}}
+                                            </a>
+                                            @if (!last) {
+                                            <span> • </span>
+                                            }
+                                            }
+                                        </span>
+                                    </p>
+                                    <hr>
                                     }
-                                </span>
-                            </p>
-                            <hr>
-                            }
-                        }
-                    </div>
-
-                    <div class="cast-and-crew">
-                        @if (isLoading) {
-                            <div class="skeleton-dark skeleton-text mb-1" style="height: 1.5rem;"></div>
-                        } @else {
-                            <p class="d-flex gap-3">
-                                <span class="fw-bold">Cast</span>
-                                <span>
-                                    @for (person of movie.cast.split(','); track $index; let last = $last) {
-                                    <a [href]="'https://www.google.com/search?q=cast+of+' + movie.movieName"
-                                        target="_blank">
-                                        {{person}}
-                                    </a>
-                                    @if (!last) {
-                                        <span> • </span>
-                                    }
-                                    }
-                                </span>
-                            </p>
-                            <hr>
-                        }
-                    </div>
-
+                                }
+                            </div>
+        
+                            <div class="cast-and-crew">
+                                @if (isLoading) {
+                                    <div class="skeleton-dark skeleton-text mb-1" style="height: 1.5rem;"></div>
+                                } @else {
+                                    <p class="d-flex gap-3">
+                                        <span class="fw-bold">Cast</span>
+                                        <span>
+                                            @for (person of movie.cast.split(','); track $index; let last = $last) {
+                                            <a [href]="'https://www.google.com/search?q=cast+of+' + movie.movieName | strplus"
+                                                target="_blank">
+                                                {{person}}
+                                            </a>
+                                            @if (!last) {
+                                                <span> • </span>
+                                            }
+                                            }
+                                        </span>
+                                    </p>
+                                    <hr>
+                                }
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Second">
+                            Content 2
+                        </mat-tab>
+                    </mat-tab-group>
                 </div>
 
                 <div class="other-details">
@@ -129,7 +133,7 @@
                         } @else {
                             <h5 class="mb-3">Streaming Platforms</h5>
                             @for (item of movie.platforms; track $index) {
-                            <a (click)="navigateToPlatform(streamingPlatforms[item].link, movie.movieName)"
+                            <a (click)="navigateToPlatform(streamingPlatforms[item].link, movie)"
                                 [matTooltip]="streamingPlatforms[item].name | titlecase">
                                 <img [src]="streamingPlatforms[item].img" class="platform_img rounded-2 img-fluid"
                                     [alt]="streamingPlatforms[item].name">

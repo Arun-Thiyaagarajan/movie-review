@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthComponent } from '@app/components/auth/auth.component';
 
 @Component({
   selector: 'app-comment-section',
@@ -10,8 +11,11 @@ export class CommentSectionComponent implements OnInit {
   public showEmojiPicker: boolean = false;
   public commentsForm: FormGroup;
   public isFocused: boolean = false;
+  public isYourReview: boolean = true;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {
     this.commentsForm = this.formBuilder.group({
       comments: ['']
     });

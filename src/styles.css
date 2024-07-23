@@ -57,6 +57,19 @@ section.section {
     animation: skeleton-dark-loading 1s linear infinite alternate;
 }
 
+/* .icon-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+} */
+
+.logo-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+
 @keyframes skeleton-dark-loading {
     0% {
         background-color: hsl(199, 15%, 72%);

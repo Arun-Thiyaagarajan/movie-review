@@ -1,0 +1,22 @@
+.login-modal {
+    z-index: 1000;
+}
+
+.login-main-title {
+    padding-top: 0.5rem;
+    font-size: 1.75rem;
+}
+
+.or-dash {
+    top: 12.6%;
+    left: 50%;
+    background-color: white;
+}
+
+.register-field > a {
+    text-decoration: underline;
+}
+
+.register-field > a:hover {
+    text-decoration: none;
+}
