@@ -24,9 +24,9 @@ export class MovieDetailComponent implements OnInit {
     public router: Router,
     private clipboardService: ClipboardService,
     private activeRoute: ActivatedRoute,
-    private snackBar: SnackbarService,
     private moviesService: MoviesService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private snackBar: SnackbarService,
   ) { }
 
   ngOnInit() {
@@ -45,9 +45,9 @@ export class MovieDetailComponent implements OnInit {
     }
   }
 
-  public navigateToPlatform(url: string, movieName: string) {
-    this.copyToClipboard(movieName);
-    window.open(url, '_blank');
+  public navigateToPlatform(url: string, movie: any) {
+    this.copyToClipboard(movie.movieName);
+    window.open(url + (movie.movieName), '_blank');
   }
 
   copyToClipboard(movieName: string): void {

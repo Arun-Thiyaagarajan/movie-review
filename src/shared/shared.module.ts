@@ -10,6 +10,8 @@ import { SlugifyPipe } from '@shared/pipes/slugify.pipe';
 import { EmojiPickerComponent } from '@shared/components/emoji-picker/emoji-picker.component';
 import { EmojiModule } from '@ctrl/ngx-emoji-mart/ngx-emoji';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { StrplusPipe } from './pipes/strplus.pipe';
+import { AngularMaterialModule } from '@shared/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
     NotFoundComponent,
     SlugifyPipe,
     EmojiPickerComponent,
+    StrplusPipe,
   ],
   exports: [
     NavbarComponent,
@@ -27,6 +30,8 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
     MatProgressBarModule,
     SlugifyPipe,
     EmojiPickerComponent,
+    StrplusPipe,
+    AngularMaterialModule,
   ],
   imports: [
     CommonModule,
@@ -34,7 +39,8 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
     IconModule,
     MatProgressBarModule,
     EmojiModule,
-    PickerModule
+    PickerModule,
+    AngularMaterialModule,
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,72 @@
+<section class="login-modal">
+    <div class="m-header">
+        <h2 mat-dialog-title class="login-main-title fw-bold text-center px-0 pb-0 user-select-none">Good<span class="orange">Films</span></h2>
+        <hr>
+        <div class="login-title text-center">
+            <h4>Login Now</h4>
+            <p class="text-secondary mb-0">Step into Your Movie Universe by Login.</p>
+        </div>
+    </div>
+    <mat-dialog-content>
+        <div class="position-relative">
+            <div class="google-auth mb-4">
+                <button class="w-100 mat-primary" mat-stroked-button>
+                    <img src="../../../assets/google.svg" class="logo-icon me-1" alt="google-logo">
+                    <span>Google</span>
+                </button>
+            </div>
+            <hr>
+            <span class="or-dash position-absolute">OR</span>
+            <form class="auth-form mt-4" [formGroup]="authForm" (submit)="onSubmit()">
+                <div class="d-grid gap-2">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher"
+                        placeholder="Ex. pat@example.com">
+                        <!-- <mat-hint>Errors appear instantly!</mat-hint>
+                        @if (authForm.hasError('email') && !authForm.hasError('required')) {
+                            <mat-error>Please enter a valid email address</mat-error>
+                            }
+                            @if (authForm.hasError('required')) {
+                                <mat-error>Email is <strong>required</strong></mat-error>
+                                } -->
+                            </mat-form-field>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Password</mat-label>
+                                <input [type]="showPassword ? 'text' : 'password'" matInput formControlName="password">
+                                @if (authForm.value.password) {
+                                    <button matSuffix mat-icon-button (click)="showPassword = !showPassword">
+                                        @if (!showPassword) {
+                                            <app-icon [icon]="['far', 'eye']"></app-icon>
+                                        } @else {
+                                            <app-icon [icon]="['far', 'eye-slash']"></app-icon>
+                                        }
+                                    </button>
+                                }
+                    <!-- @if (authForm.hasError('email') && !authForm.hasError('required')) {
+                        <mat-error>Please enter a valid email address</mat-error>
+                        }
+                        @if (authForm.hasError('required')) {
+                            <mat-error>Email is <strong>required</strong></mat-error>
+                            } -->
+                        </mat-form-field>
+                        <p class="text-end mb-0">
+                        <a href="">Forgot Password?</a>
+                    </p>
+                    <button class="mat-warn mb-3" mat-raised-button>Login</button>
+                    <div class="register-field text-center mb-2">
+                        <span>You're not a member? </span>
+                        <a class="orange">Register now</a>
+                    </div>
+                </div>
+            </form>    
+        </div>
+    </mat-dialog-content>
+    <!-- <div class="d-flex justify-content-between align-items-center">
+        <mat-dialog-actions>
+            <button mat-button [mat-dialog-close]>
+                Close
+            </button>
+        </mat-dialog-actions>
+    </div> -->
+</section>

@@ -9,6 +9,13 @@
     }
 }
 
+.title-border {
+    height: 2.25rem;
+    width: 4px;
+    border-radius: 2px;
+    background-color: var(--orange);
+}
+
 .input-comment {
     display: flex;
     align-items: start;
@@ -70,6 +77,11 @@ emoji-mart {
     background-color: hsl(0, 0%, 95%);
     display: flex;
     gap: 0.8rem;
+    transition: all 0.1s linear;
+}
+
+.others-review:hover {
+    background-color: hsl(0, 0%, 90%);
 }
 
 .others-review-btn-container {
@@ -84,6 +96,9 @@ emoji-mart {
     background-color: hsl(12, 100%, 95%);   
 }
 
+.your-review:hover {
+    background-color: hsl(12, 100%, 93%);   
+}
 
 @media screen and (min-width: 992px) {
     .comment-section {

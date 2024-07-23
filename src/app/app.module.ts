@@ -11,7 +11,6 @@ import { MovieDetailComponent } from '@app/components/movies/movie-detail/movie-
 import { ClipboardModule } from 'ngx-clipboard';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { AngularMaterialModule } from '@app/angular-material.module';
 import { SharedModule } from '@shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +19,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
 import { MovieCardComponent } from '@app/components/movies/movie-card/movie-card.component';
 import { CommentSectionComponent } from '@app/components/movies/movie-detail/comment-section/comment-section.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { CommentSectionComponent } from '@app/components/movies/movie-detail/com
     MovieDetailComponent,
     MovieCardComponent,
     CommentSectionComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,6 @@ import { CommentSectionComponent } from '@app/components/movies/movie-detail/com
     SharedModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AngularMaterialModule,
     // AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
   ],

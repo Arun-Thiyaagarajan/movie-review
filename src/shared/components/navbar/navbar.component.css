@@ -1,3 +1,8 @@
 .navbar {
     box-shadow: var(--box-shadow-2);
+    z-index: 0;
+}
+
+.login-btn {
+    border-radius: 20px;
 }

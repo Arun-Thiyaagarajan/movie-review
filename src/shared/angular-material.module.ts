@@ -7,6 +7,8 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -17,7 +19,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatRippleModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatDialogModule,
   ],
   exports: [
     MatButtonModule,
@@ -27,7 +31,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatRippleModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatDialogModule,
   ]
 })
 export class AngularMaterialModule { }
